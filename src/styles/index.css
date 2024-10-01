@@ -1,12 +1,31 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
 
-/* 
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: black;
+    padding: 20px;
+    margin: 20px;
+    flex-direction: row; 
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.digit {
+    color: #ffff;
+    background-color: black;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid #252424;
+    box-shadow: 0 0 5px 2px #252424;
+    border-radius: 5px;
+    font-size: 5em;
+}
 
-*/
+
+
+.separator {
+    color: #8f8f8fbf;
+    font-size: 5em;
+    margin: 0 5px; 
+}
