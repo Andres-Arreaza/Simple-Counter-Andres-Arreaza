@@ -1,41 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import Card from "./card";
 
-function DigitalCounter() {
-    const [seconds, setSeconds] = useState(0);
+const Timer = () => {
+    const [count, setCount] = useState(0)
+    const [text, setText] = useState("")
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setSeconds(prevSeconds => prevSeconds + 1);
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
+        let intervalID = setInterval(() => {
+            setCount(count +1)
+        }, 1000)
+        return () =>{
+            clearInterval(intervalID)
+        }
+    }, [count])
 
-    const formatTime = (totalSeconds) => {
-        const hours = Math.floor(totalSeconds / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const secs = totalSeconds % 60;
-        return {
-            hours: String(hours).padStart(2, '0'),
-            minutes: String(minutes).padStart(2, '0'),
-            seconds: String(secs).padStart(2, '0')
-        };
-    };
+    const space = count.toString().padStart(6, "0").split("")
 
-    const time = formatTime(seconds);
+
 
     return (
-        <div className="counter">
-            <div className="digit"><i className="bi bi-clock-history"></i></div>
-            <div className="digit">{time.hours[0]}</div>
-            <div className="digit">{time.hours[1]}</div>
-            <div className="separator">:</div>
-            <div className="digit">{time.minutes[0]}</div>
-            <div className="digit">{time.minutes[1]}</div>
-            <div className="separator">:</div>
-            <div className="digit">{time.seconds[0]}</div>
-            <div className="digit">{time.seconds[1]}</div>
+        <div className="d-flex gap-3 p-3 align-items-center justify-content-center" style={{background:'#000'}}>
+           {text}
+            <Card/>
+            {space.map((value, index)=> {
+            return <Card value={value} key={index} heigth="9vw" width="10%" /> 
+            })}
         </div>
     );
-}
-
-export default DigitalCounter;
+};
+export default Timer;

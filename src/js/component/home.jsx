@@ -1,17 +1,15 @@
 import React from 'react';
-import DigitalCounter from '../component/timer';
-//include images into your bundle
+import Timer from '../component/timer.jsx';
+import Footer from '../component/footer.jsx';
 
 //create your first component
 const Home = () => {
 	return (
-        <div className="App">
-            <header className="App-header">
-                <DigitalCounter />
-            </header>
-        </div>
-    )
+		<div className="container-fluid px-0">
+			<Timer />
+			<Footer />
+		</div>
+	)
 };
-
 
 export default Home;
